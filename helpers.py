@@ -77,19 +77,13 @@ def chat(query, context):
                 },
                 {
                     "role": "user",
-                    "content": f"""
-        Client Situation:
-        {query}
-
-        Relevant Past Cases:
-        {context}
-
-        Based on the above, what is the most effective defense strategy and what outcome is most likely? Please provide a concise, well-reasoned answer supported by case data.
-                        """
-                    }
-                ],
-                max_tokens=600
-            )
+                    "content": f"""Client Situation: {query}
+Relevant Past Cases: {context}
+Based on the above, what is the most effective defense strategy and what outcome is most likely? Please provide a concise, well-reasoned answer supported by case data."""
+                }
+            ],
+            max_tokens=600
+        )
 
         return response.choices[0].message.content.strip()
     except Exception as e:
