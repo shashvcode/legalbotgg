@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import UserForm from './components/UserForm';
+import UserForm from './UserForm';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -16,7 +16,12 @@ const router = createBrowserRouter([
     path: "*",
     element: <UserForm />,
   }
-]);
+], {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true
+  }
+});
 
 function App() {
   return <RouterProvider router={router} />;
